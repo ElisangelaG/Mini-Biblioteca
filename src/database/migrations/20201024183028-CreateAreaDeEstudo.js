@@ -7,15 +7,15 @@ module.exports = {
       Example:
       return queryInterface.createTable('users', { id: Sequelize.INTEGER });
     */
-    return queryInterface.createTable("users", {
+    return queryInterface.createTable("area_de_estudo", {
       id: Sequelize.INTEGER,
-      name: Sequelize.STRING,
-      created_at: Sequelize.DATE,
-      updated_at: Sequelize.DATE
+      descricao: Sequelize.STRING,
+      created_at: Sequelize.STRING,
+      updated_at: Sequelize.STRING
     });
   },
 
-  down: (queryInterface /* Sequelize */) => {
+  down: (queryInterface, Sequelize) => {
     /*
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.
@@ -23,6 +23,5 @@ module.exports = {
       Example:
       return queryInterface.dropTable('users');
     */
-    return queryInterface.dropTable("users");
   }
 };
