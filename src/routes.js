@@ -1,8 +1,8 @@
 import { Router } from "express";
-import UsersController from "./app/controllers/UsersController";
+import UsuariosController from "./app/controllers/UsuariosController";
 
 const routes = new Router();
 
-routes.get("/api/v1/users", UsersController.index);
+routes.get("/api/v1/users", UsuariosController.index);
 
 export default routes;

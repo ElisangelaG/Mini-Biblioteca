@@ -1,21 +1,20 @@
 import DataTypes, { Model } from "sequelize";
 
-class AutorObras extends Model {
+class TipoUsuario extends Model {
   static init(sequelize) {
     super.init(
       {
-        autor_id: DataTypes.INTEGER,
-        obra_id: DataTypes.INTEGER
+        descricao: DataTypes.STRING
       },
       {
         sequelize
       }
     );
 
-    return AutorObras;
+    return TipoUsuario;
   }
 
   static associate(models) {}
 }
 
-export default AutorObras;
+export default TipoUsuario;
