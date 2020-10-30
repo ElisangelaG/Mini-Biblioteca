@@ -1,5 +1,7 @@
 import DataTypes, { Model } from "sequelize";
 
+const bcrypt = require("bcrypt");
+
 class Usuario extends Model {
   static init(sequelize) {
     super.init(
@@ -9,11 +11,20 @@ class Usuario extends Model {
         email: DataTypes.STRING
       },
       {
-        sequelize
+        sequelize,
+        hooks: {
+          beforeCreate: usuario => {
+            usuario.senha = bcrypt.hashSync(usuario.senha, 10);
+          }
+        }
       }
     );
 
     return Usuario;
+  }
+
+  validarSenha(senha) {
+    return bcrypt.compareSync(senha, this.senha);
   }
 
   static associate(models) {
