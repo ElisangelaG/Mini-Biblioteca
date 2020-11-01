@@ -1,5 +1,6 @@
 import Obra from "../models/obra";
 import Usuario from "../models/usuario";
+import Pessoa from "../models/pessoa";
 
 const { Op } = require("sequelize");
 const jwt = require("jsonwebtoken");
@@ -21,8 +22,8 @@ class UsuariosController {
         return res.status(409).json({ error: "Usuário já existe!" });
       }
 
-      usuario = await Usuario.create({ ...req.body });
-
+      usuario = await Usuario.create({ ...req.body }, { include: ["pessoa"]});
+      
       delete usuario.dataValues.senha;
       return res.json({ usuario });
     } catch (err) {

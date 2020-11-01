@@ -15,13 +15,14 @@ module.exports = async (req, res, next) => {
 
     // cria um objeto usuario no request
     if (id_usuario) {
-      const usuario = await Usuario.findByPk(id_usuario);
+      const usuario = await Usuario.findByPk(id_usuario, {include: ["pessoa"]});
       req.usuario = usuario.dataValues;
       return next();
     }
 
     return res.status(401).json({ error: "Token inválido!" });
   } catch (err) {
+    console.log(err)
     return res.status(401).json({ error: "Token inválido!" });
   }
 };

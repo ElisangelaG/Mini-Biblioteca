@@ -6,8 +6,9 @@ import Autor from "../app/models/autor";
 import AutorObra from "../app/models/autorobra";
 import TipoUsuario from "../app/models/tipousuario";
 import Usuario from "../app/models/usuario";
+import Pessoa from "../app/models/pessoa";
 
-const models = [Obra, Autor, AutorObra, TipoUsuario, Usuario];
+const models = [Obra, Autor, AutorObra, TipoUsuario, Usuario, Pessoa];
 
 class Database {
   constructor() {

@@ -1,37 +1,25 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("usuarios", {
+    return queryInterface.createTable("pessoas", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      tipo_usuario_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "tipo_usuarios",
-          key: "id"
-        },
-        onUpdate: "CASCADE",
-        onDelete: "SET NULL"
-      },
-      pessoa_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "pessoas",
-          key: "id"
-        },
-        onUpdate: "CASCADE",
-        onDelete: "SET NULL"
-      },
-      login: {
+      nome: {
         type: Sequelize.STRING
       },
-      senha: {
+      data_nascimento: {
+        type: Sequelize.DATE
+      },
+      celular: {
         type: Sequelize.STRING
       },
-      email: {
+      ra: {
+        type: Sequelize.STRING
+      },
+      faculdade: {
         type: Sequelize.STRING
       },
       created_at: {

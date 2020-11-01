@@ -32,6 +32,10 @@ class Usuario extends Model {
       as: "tipo",
       foreignKey: "id"
     });
+    this.belongsTo(models.Pessoa, {
+      as: "pessoa",
+      foreignKey: "pessoa_id",
+    });
   }
 }
 
