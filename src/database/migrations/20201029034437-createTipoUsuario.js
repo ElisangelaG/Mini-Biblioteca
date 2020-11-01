@@ -1,3 +1,5 @@
+//const TipoUsuario = require("../../app/models/tipousuario");
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable("tipo_usuarios", {
@@ -18,6 +20,17 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
+    }).then (()=>{
+      queryInterface.insert(null, 'tipo_usuarios', {
+        descricao: 'master',
+        created_at: new Date(),
+        updated_at: new Date()
+      });
+      queryInterface.insert(null, 'tipo_usuarios', {
+        descricao: 'normal',
+        created_at: new Date(),
+        updated_at: new Date()
+      });
     });
   },
 

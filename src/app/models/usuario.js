@@ -8,7 +8,8 @@ class Usuario extends Model {
       {
         login: DataTypes.STRING,
         senha: DataTypes.STRING,
-        email: DataTypes.STRING
+        email: DataTypes.STRING,
+        tipo_usuario_id: DataTypes.INTEGER,
       },
       {
         sequelize,

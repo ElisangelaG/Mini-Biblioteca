@@ -1,6 +1,7 @@
 import Obra from "../models/obra";
 import Usuario from "../models/usuario";
 import Pessoa from "../models/pessoa";
+import TipoUsuario from "../models/tipousuario";
 
 const { Op } = require("sequelize");
 const jwt = require("jsonwebtoken");
@@ -22,7 +23,15 @@ class UsuariosController {
         return res.status(409).json({ error: "Usuário já existe!" });
       }
 
-      usuario = await Usuario.create({ ...req.body }, { include: ["pessoa"]});
+      usuario = await Usuario.create(
+        { 
+          ...req.body,
+          tipo_usuario_id: (req.tipo === 'master' ? 1 : 2)
+        }, 
+        { 
+          include: ["pessoa"]
+        }
+      );
       
       delete usuario.dataValues.senha;
       return res.json({ usuario });
