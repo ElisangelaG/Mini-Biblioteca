@@ -9,7 +9,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7e734', end
 
 .menu {
     font-family: Arial, Helvetica, sans-serif;
-    background: rgb(34, 167, 219);
+    background: rgb(100, 149, 237);
 }
 
 .veiculo {
@@ -89,8 +89,8 @@ img {
 }
 
 .centro300 {
-    width: 300px;
-    margin: 25px 50px 25px 35px;
+    width: 900px;
+    margin: 0 auto;
 }
 
 .boxlogin {
