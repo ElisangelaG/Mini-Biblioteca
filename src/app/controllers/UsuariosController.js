@@ -1,7 +1,8 @@
-import Obra from "../models/obra";
+import { where } from "sequelize";
+import { defaults } from "request";
 import Usuario from "../models/usuario";
-import Pessoa from "../models/pessoa";
-import TipoUsuario from "../models/tipousuario";
+import PessoaCurso from "../models/pessoacurso";
+import Curso from "../models/curso";
 
 const { Op } = require("sequelize");
 const jwt = require("jsonwebtoken");
@@ -24,17 +25,33 @@ class UsuariosController {
       }
 
       usuario = await Usuario.create(
-        { 
+        {
           ...req.body,
-          tipo_usuario_id: (req.tipo === 'master' ? 1 : 2)
-        }, 
-        { 
+          tipo_usuario_id: req.tipo === "master" ? 1 : 2
+        },
+        {
           include: ["pessoa"]
         }
       );
-      
-      delete usuario.dataValues.senha;
-      return res.json({ usuario });
+
+      const usuarioResponse = { ...usuario.dataValues };
+      usuarioResponse.pessoa = { ...usuarioResponse.pessoa.dataValues };
+
+      if (req.body.pessoa && req.body.pessoa.curso) {
+        const curso = await Curso.findOrCreate({
+          where: { descricao: req.body.pessoa.curso },
+          defaults: {
+            descricao: req.body.pessoa.curso
+          }
+        });
+        await PessoaCurso.create({
+          pessoa_id: usuario.dataValues.pessoa.id,
+          curso_id: curso[0].dataValues.id
+        });
+        usuarioResponse.pessoa.curso = curso[0].dataValues.descricao;
+      }
+      delete usuarioResponse.senha;
+      return res.json({ usuario: usuarioResponse });
     } catch (err) {
       return next(err);
     }
