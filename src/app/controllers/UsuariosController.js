@@ -48,7 +48,8 @@ class UsuariosController {
           pessoa_id: usuario.dataValues.pessoa.id,
           curso_id: curso[0].dataValues.id
         });
-        usuarioResponse.pessoa.curso = curso[0].dataValues.descricao;
+
+        usuarioResponse.pessoa.cursos = [curso[0].dataValues.descricao];
       }
       delete usuarioResponse.senha;
       return res.json({ usuario: usuarioResponse });
