@@ -37,18 +37,21 @@ class UsuariosController {
       const usuarioResponse = { ...usuario.dataValues };
       usuarioResponse.pessoa = { ...usuarioResponse.pessoa.dataValues };
 
-      if (req.body.pessoa && req.body.pessoa.curso) {
-        const curso = await Curso.findOrCreate({
-          where: { descricao: req.body.pessoa.curso },
-          defaults: {
-            descricao: req.body.pessoa.curso
-          }
-        });
-        await PessoaCurso.create({
-          pessoa_id: usuario.dataValues.pessoa.id,
-          curso_id: curso[0].dataValues.id
-        });
-        usuarioResponse.pessoa.curso = curso[0].dataValues.descricao;
+      if (req.body.pessoa && req.body.pessoa.cursos) {
+        for (const c of req.body.pessoa.cursos) {
+          const curso = await Curso.findOrCreate({
+            where: { descricao: c },
+            defaults: {
+              descricao: c
+            }
+          });
+          await PessoaCurso.create({
+            pessoa_id: usuario.dataValues.pessoa.id,
+            curso_id: curso[0].dataValues.id
+          });
+        }
+
+        usuarioResponse.pessoa.cursos = req.body.pessoa.cursos;
       }
       delete usuarioResponse.senha;
       return res.json({ usuario: usuarioResponse });
