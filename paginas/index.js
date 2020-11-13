@@ -19,13 +19,17 @@ app.get("/cadastrousuario", function(req, resp) {
     resp.render('cadastrousuario')
 })
 app.get("/cadastroobras", function(req, resp) {
-        resp.render('cadastroobras')
-    })
-    //Exemplo de parametro
+    resp.render('cadastroobras')
+})
+
+app.get("/telausuario", function(req, resp) {
+    resp.render('telausuario')
+})
+
+//Exemplo de parametro
 app.get('/teste/:nome', function(req, resp) {
     resp.send("Teste do parametro " + req.params.nome)
 })
-
 
 //deixar a linha abaixo no final do codigo
 app.listen(8081, function() {
