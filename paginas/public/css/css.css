@@ -1,4 +1,4 @@
-        /*background: -moz-linear-gradient(left,  rgb(103, 79, 241) 0%, rgba(230,198,39,1) 100%);
+/*background: -moz-linear-gradient(left,  rgb(103, 79, 241) 0%, rgba(230,198,39,1) 100%);
 background: -webkit-gradient(left top, right top, color-stop(0%, rgba(247,231,52,1)), color-stop(100%, rgba(230,198,39,1)));
 background: -webkit-linear-gradient(left, rgba(247,231,52,1) 0%, rgba(230,198,39,1) 100%);
 background: -o-linear-gradient(left, rgba(247,231,52,1) 0%, rgba(230,198,39,1) 100%);
@@ -6,217 +6,222 @@ background: -ms-linear-gradient(left, rgba(247,231,52,1) 0%, rgba(230,198,39,1) 
 background: linear-gradient(to right, rgba(247,231,52,1) 0%, rgba(230,198,39,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7e734', endColorstr='#e6c627', GradientType=1 );
 }*/
-        
-        .menu {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #87CEFA;
-        }
-        
-        .menu1 {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #FFFFFF;
-            width: 100%;
-        }
-        
-        .veiculo {
-            font-family: Arial;
-            text-align: center;
-            font-size: 100px;
-        }
-        
-        .navbar1 {
-            overflow: auto;
-        }
-        
-        .navbar a {
-            float: left;
-            font-size: 16px;
-            color: black;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        
-        .subnav {
-            float: left;
-            overflow: hidden;
-        }
-        
-        .subnav1 .subnavbtn1 {
-            float: right;
-            font-size: 16px;
-            border: none;
-            color: black;
-            padding: 15px 20px;
-            background-color: inherit;
-            font-family: Helvetica;
-            font-weight: bold;
-        }
-        
-        .borda1 {
-            background: #FFF;
-            color: #FFF;
-            padding: 50px;
-            border-bottom: 5px solid #CCC;
-        }
-        
-        .subnav .subnavbtn {
-            font-size: 16px;
-            border: none;
-            outline: none;
-            color: black;
-            padding: 14px 16px;
-            background-color: inherit;
-            font-family: inherit;
-            margin: 0;
-        }
-        
-        .navbar a:hover,
-        .subnav:hover .subnavbtn {
-            background-color: white;
-        }
-        
-        .frente {
-            width: 100%;
-            border-radius: 6px;
-            height: 500px;
-            margin-top: 10px;
-        }
-        
-        .text {
-            padding: 10px;
-            width: 90%;
-            text-align: justify;
-        }
-        
-        .logo {
-            width: 10%;
-            float: left
-        }
-        
-        img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 50%;
-        }
-        
-        .centro900 {
-            width: 900px;
-            margin: 0 auto;
-        }
-        
-        .centro1100 {
-            width: 1100px;
-            margin: 0 auto;
-        }
-        
-        .centro300 {
-            width: 900px;
-            margin: 0 auto;
-        }
-        
-        .boxlogin {
-            width: 900px;
-            height: 450px;
-            float: left;
-            margin-top: 50px;
-            background-color: #fff;
-            border-radius: 10px;
-            -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-            -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-            box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-        }
-        
-        .boxcadastro {
-            width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            float: left;
-            margin-top: 40px;
-            background-color: #fff;
-            padding: 15px;
-            border-radius: 10px;
-            -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-            -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-            box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-        }
-        
-        .ladoesquerdo {
-            width: 350px;
-            height: 450px;
-            padding: 15px;
-            margin: 0 auto;
-        }
-        
-        .ladodireito {
-            width: 550px;
-            height: 450px;
-            float: left;
-            background-image: url("../image/carrologin.jpg");
-            background-position: center top;
-            border-radius: 0px 10px 10px 0px;
-        }
-        
-        .boxpagina {
-            width: 1100px;
-            height: 800px;
-            float: left;
-            margin-top: 50px;
-            background-color: #fff;
-            border-radius: 10px;
-            -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-            -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-            box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-        }
-        
-        .table {
-            width: 100%;
-            height: 120px;
-            float: left;
-            position: relative;
-            overflow: scroll;
-        }
-        
-        .rodape {
-            width: 95%;
-            height: 25px;
-            float: left;
-            margin-top: 15px;
-            text-align: center;
-            text-align: center; padding: 30px; background-color: slategray;
-        }
-        
-        .figure {
-            float: left;
-            width: 25%;
-            margin-left: -55px;
-            margin-top: -50px;
-        }
-        
-        p.boxmodel1 {
-            width: 320px;
-            height: 150px;
-            background: #DCDCDC;
-            color: #000000
-        }
-        
-        p.boxmodel2 {
-            width: 320px;
-            height: 150px;
-            background: #DCDCDC;
-            color: #000000;
-            text-align: justify;
-        }
-        
-        p.boxmodel3 {
-            width: 320px;
-            height: 150px;
-            background: #DCDCDC;
-            color: #000000
-        }
-        
-        .icon {
-            margin-top: -0.1px;
-            width: 20%;
-        }
+
+.menu {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #87cefa;
+}
+
+.menu1 {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    width: 100%;
+}
+
+.veiculo {
+    font-family: Arial;
+    text-align: center;
+    font-size: 100px;
+}
+
+.navbar1 {
+    overflow: auto;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.subnav {
+    float: left;
+    overflow: hidden;
+}
+
+.subnav1 .subnavbtn1 {
+    float: right;
+    font-size: 16px;
+    border: none;
+    color: black;
+    padding: 15px 20px;
+    background-color: inherit;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+.borda1 {
+    background: #fff;
+    color: #fff;
+    padding: 50px;
+    border-bottom: 5px solid #ccc;
+}
+
+.subnav .subnavbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover,
+.subnav:hover .subnavbtn {
+    background-color: white;
+}
+
+.frente {
+    width: 100%;
+    border-radius: 6px;
+    height: 500px;
+    margin-top: 10px;
+}
+
+.text {
+    padding: 10px;
+    width: 90%;
+    text-align: justify;
+}
+
+.logo {
+    width: 10%;
+    float: left;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.centro900 {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.centro1100 {
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.centro300 {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.boxlogin {
+    width: 900px;
+    height: 450px;
+    float: left;
+    margin-top: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.boxcadastro {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    float: left;
+    margin-top: 40px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.ladoesquerdo {
+    width: 350px;
+    height: 450px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.ladodireito {
+    width: 550px;
+    height: 450px;
+    float: left;
+    background-image: url("../image/carrologin.jpg");
+    background-position: center top;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.boxpagina {
+    width: 1100px;
+    height: 800px;
+    float: left;
+    margin-top: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.table {
+    width: 100%;
+    height: 120px;
+    float: left;
+    position: relative;
+    overflow: scroll;
+}
+
+.rodape {
+    width: 95%;
+    height: 25px;
+    float: left;
+    margin-top: 15px;
+    text-align: center;
+    text-align: center;
+    padding: 30px;
+    background-color: slategray;
+}
+.row{
+    display: inline-grid; 
+    grid-template-columns: auto auto auto;
+}
+.figure {
+    float: left;
+    width: 25%;
+    margin-left: -55px;
+    margin-top: -50px;
+}
+
+p.boxmodel1 {
+    width: 320px;
+    height: 150px;
+    background: #dcdcdc;
+    color: #000000;
+}
+
+p.boxmodel2 {
+    width: 320px;
+    height: 150px;
+    background: #dcdcdc;
+    color: #000000;
+    text-align: justify;
+}
+
+p.boxmodel3 {
+    width: 320px;
+    height: 150px;
+    background: #dcdcdc;
+    color: #000000;
+}
+
+.icon {
+    margin-top: -0.1px;
+    width: 20%;
+}
