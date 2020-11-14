@@ -5,7 +5,8 @@
     <meta charset="utf-8" />
     <title>Mini Biblioteca</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="css/css.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -13,18 +14,18 @@
         function cadastrar() {
             const termosAceitos = document.getElementById("termos").checked;
 
-            if(!termosAceitos){
+            if (!termosAceitos) {
                 alert('Você deve aceitar os termos!');
                 return;
             }
 
-            const nome = document.getElementById('nome').value;
-            const cpf = document.getElementById('cpf').value;
-            const data_nascimento = document.getElementById('nascimento').value;
-            const email = document.getElementById('email').value;
-            const celular = document.getElementById('tel').value;
-            const login = document.getElementById('login').value;
-            const senha = document.getElementById('senha').value;
+            const nome = document.getElementById('Nome').value;
+            const cpf = document.getElementById('CPF').value;
+            const data_nascimento = document.getElementById('Data de Nascimento').value;
+            const email = document.getElementById('Email').value;
+            const celular = document.getElementById('Telefone').value;
+            const login = document.getElementById('Usuario').value;
+            const senha = document.getElementById('Senha').value;
             $.ajax({
                 type: "POST",
                 url: "https://api.om.blog.br/api/v1/usuarios",
@@ -37,20 +38,21 @@
                         nome,
                         data_nascimento, //formato AAAA-MM-DD
                         celular,
+                        cpf, //formato 000.000.000-00
                         // Falta adicionar campos de faculdade, cursos e RA 
                         cursos: ['Ciência da computação'],
                         faculdade: 'Unibh',
                         ra: '11111111'
                     }
                 },
-                success: function(res){
+                success: function (res) {
                     console.log(res)
-                   // localStorage.setItem('user_token', res.token)
+                    // localStorage.setItem('user_token', res.token)
                     alert('Conta criada com sucesso!');
                 },
-                error: function(err){
+                error: function (err) {
                     console.log(err)
-                    alert('Erro ao cadastrar! '+ err.responseText);
+                    alert('Erro ao cadastrar! ' + err.responseText);
                 },
                 dataType: "json",
             });
@@ -60,28 +62,108 @@
 
 </head>
 
-<body class="menu"> 
+<body class="menu">
     <div class="centro300">
         <div class="boxcadastro">
             <img src="image/Logotipo.jpg" style="width: 25%">
             <h3 style="text-align: center; margin-top: 15px;">Cadastro de Usuário</h3>
-            
-            <input id="nome" type="text" class="form-control" style="margin-top: 10px;" placeholder="Nome">
-            <input id="cpf" type="text" class="form-control" style="margin-top: 10px;" placeholder="CPF">
-            <input id="nascimento" type="text" class="form-control" style="margin-top: 10px;" placeholder="Data de Nascimento">
-            <input id="email" type="text" class="form-control" style="margin-top: 10px;" placeholder="email">
-            <input id="tel" type="text" class="form-control" style="margin-top: 10px;" placeholder="Telefone">
-            <input id="login" type="text" class="form-control" style="margin-top: 10px;" placeholder="Usuario para acesso">
-            <input id="senha" type="text" class="form-control" style="margin-top: 10px;" placeholder="Senha para acesso">
-            Eu li e concordo com os <a href="https://drive.google.com/file/d/1S8cWZg6mEr02cm7cJo7Czjr9GqGzTa4i/view?usp=sharing">termos de uso</a>.
+
+            <input id="Nome" type="text" class="form-control" style="margin-top: 10px;" placeholder="Nome">
+            <input id="CPF" type="text" class="form-control" style="margin-top: 10px;" placeholder="CPF">
+            <input id="Data de Nascimento" type="text" class="form-control" style="margin-top: 10px;"
+                placeholder="Data de Nascimento">
+            <input id="Email" type="text" class="form-control" style="margin-top: 10px;" placeholder="Email">
+            <input id="Telefone" type="text" class="form-control" style="margin-top: 10px;" placeholder="Telefone">
+            <input id="Faculdade" type="text" class="form-control" style="margin-top: 10px;" placeholder="Faculdade">
+            <select id="Curso" type="text" class="form-control" style="margin-top: 10px;" placeholder="Curso">
+                <option>Selecione um curso</option>
+                <option value="valor1">Administração</option>
+                <option value="valor2">Agronomia</option>
+                <option value="valor3">Análise e Desenvolvimento de Sistemas</option>
+                <option value="valor4">Arquitetura e Urbanismo</option>
+                <option value="valor5">Biomedicina</option>
+                <option value="valor6">Ciência da Computação</option>
+                <option value="valor7">Ciências Biológicas – Bacharelado</option>
+                <option value="valor8">Ciências Contábeis</option>
+                <option value="valor9">Ciências Econômicas e de Investimentos</option>
+                <option value="valor10">Criminologia</option>
+                <option value="valor11">Design</option>
+                <option value="valor12">Design de Animação</option>
+                <option value="valor13">Design de Interiores</option>
+                <option value="valor14">Design de Produto</option>
+                <option value="valor15">Design Gráfico</option>
+                <option value="valor16">Direito</option>
+                <option value="valor17">Educação Física</option>
+                <option value="valor18">Enfermagem</option>
+                <option value="valor19">Engenharia Ambiental</option>
+                <option value="valor20">Engenharia Civil</option>
+                <option value="valor21">Engenharia de Minas</option>
+                <option value="valor22">Engenharia de Produção</option>
+                <option value="valor23">Engenharia Elétrica</option>
+                <option value="valor24">Engenharia Mecânica</option>
+                <option value="valor25">Engenharia Química</option>
+                <option value="valor26">Farmácia</option>
+                <option value="valor27">Física</option>
+                <option value="valor28">Fisioterapia</option>
+                <option value="valor29">Fotografia</option>
+                <option value="valor30">Geologia</option>
+                <option value="valor31">Gestão de Tecnologia da Informação</option>
+                <option value="valor32">História</option>
+                <option value="valor33">Jogos Digitais</option>
+                <option value="valor34">Jornalismo</option>
+                <option value="valor35">Letras – Português/Inglês (Licenciatura)</option>
+                <option value="valor36">MBA Controladoria e Finanças Corporativas</option>
+                <option value="valor37">MBA em Gestão Estratégica de Negócios</option>
+                <option value="valor38">MBA Gestão Estratégica de Marketing</option>
+                <option value="valor39">MBA Gestão Estratégica de Pessoas</option>
+                <option value="valor40">MBA Gestão Estratégica de Projetos</option>
+                <option value="valor41">Medicina</option>
+                <option value="valor42">Medicina Veterinária</option>
+                <option value="valor43">Moda Contemporânea</option>
+                <option value="valor44">Música Popular Brasileira</option>
+                <option value="valor45">Naturologia</option>
+                <option value="valor46">Nutrição</option>
+                <option value="valor47">Odontologia</option>
+                <option value="valor48">Pedagogia</option>
+                <option value="valor49">Pós-Graduação em Advocacia no Direito Digital e Proteção de Dados</option>
+                <option value="valor50">Pós-Graduação em Advocacia Tributária</option>
+                <option value="valor51">Pós-Graduação em Auditoria em Saúde e Gestão da Qualidade</option>
+                <option value="valor52">Pós-Graduação em Avaliação de Impactos Ambientais</option>
+                <option value="valor53">Pós-Graduação em Cidades Inteligentes</option>
+                <option value="valor54">Pós-Graduação em Clínica Médica de Pequenos Animais</option>
+                <option value="valor55">Pós-Graduação em Clínica Médica de Pequenos Animais – Práticas Profissionais</option>
+                <option value="valor56">Pós-Graduação em Comunicação Digital e Redes Sociais</option>
+                <option value="valor57">Pós-Graduação em Direito Penal e Processo Penal Aplicados</option>
+                <option value="valor59">Pós-Graduação em Enfermagem Hospitalar – parceria com Mater Dei</option>
+                <option value="valor59">Pós-Graduação em Gestão de Comunicação Corporativa e Transparência</option>
+                <option value="valor60">Pós-Graduação em Gestão de Projetos de TI e Metodologias Ágeis</option>
+                <option value="valor61">Pós-Graduação em Inbound Marketing</option>
+                <option value="valor62">Pós-Graduação em Indústria 4.0</option>
+                <option value="valor63">Pós-Graduação em Interiores: Tendências e Tecnologia</option>
+                <option value="valor64">Pós-Graduação em Processos Criativos e Inovação</option>
+                <option value="valor65">Pós-Graduação em Retrofit e Patologia nas Construções</option>
+                <option value="valor66">Pós-Graduação em Segurança da Informação</option>
+                <option value="valor67">Psicologia</option>
+                <option value="valor68">Publicidade e Propaganda | Multiplataforma</option>
+                <option value="valor69">Química</option>
+                <option value="valor70">Relações Internacionais</option>
+                <option value="valor71">Sistemas de Informação</option>
+
+            </select>
+            <input id="Usuario" type="text" class="form-control" style="margin-top: 10px;" placeholder="Usuario">
+            <input id="Senha" type="password" class="form-control" style="margin-top: 10px;" placeholder="Senha">
+            Eu li e concordo com os <a
+                href="https://drive.google.com/file/d/1S8cWZg6mEr02cm7cJo7Czjr9GqGzTa4i/view?usp=sharing">termos de
+                uso</a>.
             <input id="termos" type="checkbox" style="margin-top: 10px;">
             <br>
-            <button onclick="cadastrar()" type="submit" class="btn btn-primary" style="margin-top: 10px;">ENVIAR</button>
+            <button onclick="cadastrar()" type="submit" class="btn btn-primary"
+                style="margin-top: 10px;">ENVIAR</button>
 
         </div>
 
-        <div class="rodape"> 
-        Seja bem vindo a Mini Biblioteca!!!
+        <div class="rodape">
+            Seja bem vindo a Mini Biblioteca!!!
         </div>
 
     </div>
