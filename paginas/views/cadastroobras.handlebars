@@ -18,16 +18,18 @@
             <img src="image/Logotipo.jpg" style="width: 25%">
             <h3 style="text-align: center; margin-top: 15px;">Cadastro Obras</h3>
             <div style="display: inline-grid; grid-template-columns: auto auto auto; width: 30%;">
-      
+
                 <div class="form-check abc-radio">
-                    <input class="form-check-input" type="radio" name="radio1" id="radio1" value="option1" >
+                    <input class="form-check-input" type="radio" name="radio1" id="radio1" value="option1"
+                        onclick="teste(1)">
                     <label class="form-check-label" for="radio1">
                         Artigo
                     </label>
                 </div>
-            
+
                 <div class="form-check abc-radio">
-                    <input class="form-check-input" type="radio" name="radio1" id="radio2" value="option2">
+                    <input class="form-check-input" type="radio" name="radio1" id="radio2" value="option2"
+                        onclick="teste(2)">
                     <label class="form-check-label" for="radio2">
                         Publicação
                     </label>
@@ -39,7 +41,7 @@
                     </label>
                 </div>
             </div>
-
+            <div id="teste"></div>
 
             <form>
                 <input type="text" class="form-control" style="margin-top: 10px;" placeholder="Titulo">
@@ -74,7 +76,9 @@
 
 <script>
     function teste(teste) {
-        alert("1")
+
+
+
     }
 </script>
 
