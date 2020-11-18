@@ -18,14 +18,22 @@ app.get("/login", function(req, resp) {
 app.get("/cadastrousuario", function(req, resp) {
     resp.render('cadastrousuario')
 })
-app.get("/cadastroobras", function(req, resp) {
-    resp.render('cadastroobras')
+app.get("/cadastroTCC", function(req, resp) {
+    resp.render('cadastroTCC')
 })
 
 app.get("/telausuario", function(req, resp) {
     resp.render('telausuario')
 })
-
+app.get("/cadastroArtigo",function(req,resp){
+    resp.render('cadastroArtigo')
+})
+app.get("/cadastroPi",function(req,resp){
+    resp.render('cadastroPi')
+})
+app.get("/cadastroPublicacao",function(req,resp){
+    resp.render('cadastroPublicacao')
+})
 //Exemplo de parametro
 app.get('/teste/:nome', function(req, resp) {
     resp.send("Teste do parametro " + req.params.nome)
