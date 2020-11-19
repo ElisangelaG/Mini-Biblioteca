@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Mini Biblioteca</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="css/css.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function cadastrar() {
+            const termosAceitos = document.getElementById("termos").checked;
+
+            if(!termosAceitos){
+                alert('Você deve aceitar os termos!');
+                return;
+            }
+
+            const nome = document.getElementById('nome').value;
+            const cpf = document.getElementById('cpf').value;
+            const data_nascimento = document.getElementById('nascimento').value;
+            const email = document.getElementById('email').value;
+            const celular = document.getElementById('tel').value;
+            const login = document.getElementById('login').value;
+            const senha = document.getElementById('senha').value;
+            $.ajax({
+                type: "POST",
+                url: "https://api.om.blog.br/api/v1/usuarios",
+                data: {
+                    tipo: 'normal',
+                    login: login,
+                    senha: senha,
+                    email,
+                    pessoa: {
+                        nome,
+                        data_nascimento, //formato AAAA-MM-DD
+                        celular,
+                        // Falta adicionar campos de faculdade, cursos e RA 
+                        cursos: ['Ciência da computação'],
+                        faculdade: 'Unibh',
+                        ra: '11111111'
+                    }
+                },
+                success: function(res){
+                    console.log(res)
+                   // localStorage.setItem('user_token', res.token)
+                    alert('Conta criada com sucesso!');
+                },
+                error: function(err){
+                    console.log(err)
+                    alert('Erro ao cadastrar! '+ err.responseText);
+                },
+                dataType: "json",
+            });
+            return true;
+        }
+    </script>
+
+</head>
+
+<body class="menu"> 
+    <div class="centro300">
+        <div class="boxcadastro">
+            <img src="image/Logotipo.jpg" style="width: 25%">
+            <h3 style="text-align: center; margin-top: 15px;">Cadastro de Usuário</h3>
+            
+            <input id="nome" type="text" class="form-control" style="margin-top: 10px;" placeholder="Nome">
+            <input id="cpf" type="text" class="form-control" style="margin-top: 10px;" placeholder="CPF">
+            <input id="nascimento" type="text" class="form-control" style="margin-top: 10px;" placeholder="Data de Nascimento">
+            <input id="email" type="text" class="form-control" style="margin-top: 10px;" placeholder="email">
+            <input id="tel" type="text" class="form-control" style="margin-top: 10px;" placeholder="Telefone">
+            <input id="login" type="text" class="form-control" style="margin-top: 10px;" placeholder="Usuario para acesso">
+            <input id="senha" type="text" class="form-control" style="margin-top: 10px;" placeholder="Senha para acesso">
+            Eu li e concordo com os <a href="https://drive.google.com/file/d/1S8cWZg6mEr02cm7cJo7Czjr9GqGzTa4i/view?usp=sharing">termos de uso</a>.
+            <input id="termos" type="checkbox" style="margin-top: 10px;">
+            <br>
+            <button onclick="cadastrar()" type="submit" class="btn btn-primary" style="margin-top: 10px;">ENVIAR</button>
+
+        </div>
+
+        <div class="rodape"> 
+        <a href="http://google.com">Seja bem vindo a Mini Biblioteca!!!</a>
+        </div>
+
+    </div>
+</body>
+
+</html>
