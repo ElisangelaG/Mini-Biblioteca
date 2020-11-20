@@ -25,21 +25,26 @@ app.get("/cadastroTCC", function(req, resp) {
 app.get("/telausuario", function(req, resp) {
     resp.render('telausuario')
 })
-app.get("/cadastroArtigo",function(req,resp){
+app.get("/cadastroArtigo", function(req, resp) {
     resp.render('cadastroArtigo')
 })
-app.get("/cadastroPi",function(req,resp){
+app.get("/cadastroPi", function(req, resp) {
     resp.render('cadastroPi')
 })
-app.get("/cadastroPublicacao",function(req,resp){
+app.get("/cadastroPublicacao", function(req, resp) {
     resp.render('cadastroPublicacao')
-})
-//Exemplo de parametro
-app.get('/teste/:nome', function(req, resp) {
-    resp.send("Teste do parametro " + req.params.nome)
+
 })
 
-//deixar a linha abaixo no final do codigo
+app.get("/visualizarobras", function(req, resp) {
+    resp.render('visualizarobras')
+})
+
+//Exemplo de parametro
+app.get('/teste/:nome', function(req, resp) {
+        resp.send("Teste do parametro " + req.params.nome)
+    })
+    //deixar a linha abaixo no final do codigo
 app.listen(8081, function() {
     console.log("Servidor conectado na url http://localhost:8081")
 })
