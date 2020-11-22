@@ -12,7 +12,7 @@
             const token = localStorage.getItem('user_token');
             $.ajax({
                 type: "GET",
-                url: "http://localhost:3331/api/v1/usuarios",
+                url: "https://api.om.blog.br/api/v1/usuarios",
                 headers: {
                     Authorization: token
                 },

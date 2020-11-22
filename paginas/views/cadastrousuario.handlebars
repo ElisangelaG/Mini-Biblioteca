@@ -30,7 +30,7 @@
             const senha = document.getElementById('Senha').value;
             $.ajax({
                 type: "POST",
-                url: "http://localhost:3331/api/v1/usuarios",
+                url: "https://api.om.blog.br/api/v1/usuarios",
                 data: {
                     tipo: 'normal',
                     login: login,
