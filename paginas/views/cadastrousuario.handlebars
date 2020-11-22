@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/css.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script>
         function cadastrar() {
             const termosAceitos = document.getElementById("termos").checked;
@@ -24,11 +25,12 @@
             const data_nascimento = document.getElementById('Data de Nascimento').value;
             const email = document.getElementById('Email').value;
             const celular = document.getElementById('Telefone').value;
+            const faculdade = document.getElementById('Faculdade').value;
             const login = document.getElementById('Usuario').value;
             const senha = document.getElementById('Senha').value;
             $.ajax({
                 type: "POST",
-                url: "https://api.om.blog.br/api/v1/usuarios",
+                url: "http://localhost:3331/api/v1/usuarios",
                 data: {
                     tipo: 'normal',
                     login: login,
@@ -36,12 +38,12 @@
                     email,
                     pessoa: {
                         nome,
-                        data_nascimento, //formato AAAA-MM-DD
+                        data_nascimento: moment(data_nascimento).format('YYYY-MM-DD'), //formato AAAA-MM-DD
                         celular,
-                        cpf, //formato 000.000.000-00
-                        // Falta adicionar campos de faculdade, cursos e RA 
-                        cursos: ['Ciência da computação'],
-                        faculdade: 'Unibh',
+                        cpf,
+                        // Falta adicionar RA
+                        cursos: [$("#Curso :selected").text()],
+                        faculdade,
                         ra: '11111111'
                     }
                 },
@@ -49,6 +51,7 @@
                     console.log(res)
                     // localStorage.setItem('user_token', res.token)
                     alert('Conta criada com sucesso!');
+                    location.href = '/login'
                 },
                 error: function (err) {
                     console.log(err)
@@ -70,7 +73,7 @@
 
             <input id="Nome" type="text" class="form-control" style="margin-top: 10px;" placeholder="Nome">
             <input id="CPF" type="text" class="form-control" style="margin-top: 10px;" placeholder="CPF">
-            <input id="Data de Nascimento" type="text" class="form-control" style="margin-top: 10px;"
+            <input id="Data de Nascimento" type="date" class="form-control" style="margin-top: 10px;"
                 placeholder="Data de Nascimento">
             <input id="Email" type="text" class="form-control" style="margin-top: 10px;" placeholder="Email">
             <input id="Telefone" type="text" class="form-control" style="margin-top: 10px;" placeholder="Telefone">

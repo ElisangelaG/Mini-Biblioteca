@@ -14,7 +14,7 @@
         const senha = document.getElementById('senha').value;
         $.ajax({
              type: "POST",
-             url: "https://api.om.blog.br/api/v1/usuarios/auth",
+             url: "http://localhost:3331/api/v1/usuarios/auth",
              data: {
                login: login,
                senha: senha
@@ -22,7 +22,7 @@
              success: function(res){
                console.log(res)
                localStorage.setItem('user_token', res.token)
-               alert('Logado com sucesso!');
+               location.href = '/visualizarobras';
              },
              error: function(err){
                console.log(err)

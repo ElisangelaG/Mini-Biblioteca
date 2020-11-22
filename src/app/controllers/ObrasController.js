@@ -40,10 +40,13 @@ class ObrasController {
                     titulo: {
                         [Op.like]: `%${req.query.titulo}%`
                     }
-                }
+                },
+                include: ['tipo_obra']
             });
-        else
-            result = await Obra.findByPk(req.query.id);
+        else if (req.query.id)
+            result = await Obra.findByPk(req.query.id, {include:['tipo_obra']});
+        else 
+            result = await Obra.findAll({include:['tipo_obra']});
         return res.json(result);
     } catch (err) {
       return next(err);

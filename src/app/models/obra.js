@@ -31,13 +31,17 @@ class Obra extends Model {
       as: "usuario",
       foreignKey: "id"
     });
+    this.hasOne(models.TipoObra, {
+      as: "tipo_obra",
+      foreignKey: "id"
+    });
     this.belongsToMany(models.Autor, {
       through: "autor_obras",
       as: "autors",
       foreignKey: "obra_id",
       otherKey: "autor_id"
     });
-    this.belongsToMany(models.Autor, {
+    this.belongsToMany(models.AreaDeEstudo, {
       through: "area_de_estudo_obras",
       as: "areas_de_estudo",
       foreignKey: "obra_id",

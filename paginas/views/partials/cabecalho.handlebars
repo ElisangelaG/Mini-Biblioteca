@@ -6,6 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/css.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            const token = localStorage.getItem('user_token');
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:3331/api/v1/usuarios",
+                headers: {
+                    Authorization: token
+                },
+                success: function(res){
+                    let stringUser = `${res.usuario.pessoa.nome}`;
+                    $('#login-container').html(stringUser);
+                    $('#sair-container').html('Sair');
+                },
+                error: function(err){
+                    console.log(err)
+                },
+                dataType: "json",
+            });   
+        });
+
+        function sair() {
+            localStorage.removeItem('user_token');
+            location.href = '/';
+        }
+    </script>
 </head>
 
 <body class="menu1">
@@ -16,7 +43,7 @@
                 <img class="figure" src="image/telahome.jpg">
 
                 <nav style="padding-left: 65%;">
-                    <ul class="menuNav" style="padding-bottom: 15%;">
+                    <ul id="nav" class="menuNav" style="padding-bottom: 15%;">
                         <li class="subnavbtn1">Cadastro de Obras
                             <ul style="position: absolute;padding-top: 10px;">
                                 <li onclick="window.location='cadastroTCC'">TCC</li>
@@ -25,7 +52,8 @@
                                 <li onclick="window.location='cadastroPublicacao'">Publicação</li>
                             </ul>
                         </li>
-                        <li class="subnavbtn1" onclick="window.location='login';">Login </li>
+                        <li id="sair-container" class="subnavbtn1" onclick="sair()"></li>
+                        <li id="login-container" class="subnavbtn1" onclick="window.location='login';">Login </li>
                         <li class="subnavbtn1" onclick="window.location='/';">Home</li>
 
                     </ul>

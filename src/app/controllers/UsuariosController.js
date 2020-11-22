@@ -9,6 +9,7 @@ const jwt = require("jsonwebtoken");
 
 class UsuariosController {
   async create(req, res, next) {
+    console.log(req.body)
     if (!req.body.login || !req.body.senha || !req.body.email) {
       return res.status(400).json({ error: "Dados incompletos!" });
     }
