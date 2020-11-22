@@ -9,6 +9,51 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="css/css.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+    <script>
+        function cadastrar() {
+
+            const titulo = document.getElementById('Titulo').value;
+            const ano = document.getElementById('Ano').value;
+            const cidade = document.getElementById('Cidade').value;
+            const universidade = document.getElementById('Universidade').value;
+            const curso = document.getElementById('Curso').value;
+            const resumo = document.getElementById('Resumo').value;
+            const arquivo = document.getElementById('Arquivo').value;
+
+            const token = localStorage.getItem('user_token');
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:3331/api/v1/obras",
+                data: {
+                    tipo_obra: 'Publicação',
+                    titulo,
+                    arquivo,
+                    cidade_publicacao: cidade,
+                    resumo,
+                    publicacao: moment(ano).format('YYYY-MM-DD')
+                },
+                headers: {
+                    Authorization: token
+                },
+                success: function (res) {
+                    console.log(res)
+                    // localStorage.setItem('user_token', res.token)
+                    alert('Obra criada com sucesso!');
+                    location.href = '/visualizarobras'
+                },
+                error: function (err) {
+                    console.log(err)
+                    alert('Erro ao cadastrar! ' + err.responseText);
+                },
+                dataType: "json",
+            });
+            return true;
+        }
+    </script>
 
 </head>
 
@@ -18,16 +63,15 @@
             <img src="image/Logotipo.jpg" style="width: 25%">
             <h3 style="text-align: center; margin-top: 15px;">Cadastro de Publicação</h3>
 
-            <form>
-                <input type="text" class="form-control" style="margin-top: 10px;" placeholder="Titulo">
-                <input type="text" class="form-control" style="margin-top: 10px;" placeholder="Autores">
-                <input type="text" class="form-control" style="margin-top: 10px;" placeholder="Data de Publicação">
-                <input type="text" class="form-control" style="margin-top: 10px;" placeholder="DOI">
-                <input type="text" class="form-control" style="margin-top: 10px;" placeholder="INSS">
-                <textarea type="text" class="form-control" style="margin-top: 10px;" placeholder="Resumo"></textarea>
-                <input type="text" class="form-control" style="margin-top: 10px;" placeholder="Link da publicação">
-                <br><button type="submit" class="btn btn-primary" style="margin-top: 10px; ">ENVIAR</button></br>
-            </form>
+           <input type="text" class="form-control" style="margin-top: 10px;" placeholder="Titulo" id="Titulo">
+            <input type="text" class="form-control" style="margin-top: 10px;" placeholder="Autores" id="Autores">
+            <input type="date" class="form-control" style="margin-top: 10px;" placeholder="Data da Publicação" id="Ano">
+            <input type="text" class="form-control" style="margin-top: 10px;" placeholder="Cidade da Publicação" id="Cidade">
+            <input type="text" class="form-control" style="margin-top: 10px;" placeholder="Universidade" id="Universidade">
+            <input type="text" class="form-control" style="margin-top: 10px;" placeholder="Curso" id="Curso">
+            <textarea type="text" class="form-control" style="margin-top: 10px;" placeholder="Resumo" id="Resumo"></textarea>
+            <input type="text" class="form-control" style="margin-top: 10px;" placeholder="Link do Arquivo" id="Arquivo">
+            <br><button onclick="cadastrar()" type="submit" class="btn btn-primary" style="margin-top: 10px; ">ENVIAR</button></br>
 
         </div>
 

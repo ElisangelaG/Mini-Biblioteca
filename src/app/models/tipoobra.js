@@ -1,4 +1,5 @@
 import DataTypes, { Model } from "sequelize";
+import Obra from "./obra";
 
 class TipoObra extends Model {
   static init(sequelize) {
@@ -14,7 +15,9 @@ class TipoObra extends Model {
     return TipoObra;
   }
 
-  static associate(models) {}
+  static associate(models) {
+      this.hasMany(Obra)
+  }
 }
 
 export default TipoObra;

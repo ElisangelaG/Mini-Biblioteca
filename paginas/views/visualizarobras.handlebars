@@ -34,7 +34,7 @@
                     obras = res;
                     let stringObras = '<table><tr><th>Título</th><th>Arquivo</th><th>Data de inserção</th><th>Tipo</th></tr>';
                     obras.forEach((obra)=>{
-                        stringObras+= `<tr><td>${obra.titulo}</td><td><a href="${obra.arquivo}">Visualizar</a></td><td>${moment(obra.created_at).format('DD/MM/YYYY')}</td><td>${obra.tipo_obra? obra.tipo_obra.descricao : ''}</td></tr>`;
+                        stringObras+= `<tr><td>${obra.titulo}</td><td><a href="${obra.arquivo}" target="_blank">Visualizar</a></td><td>${moment(obra.created_at).format('DD/MM/YYYY')}</td><td>${obra.tipo? obra.tipo.descricao : '-'}</td></tr>`;
                     });
                     stringObras += '</table>'
                     $('#obras-container').html(stringObras);

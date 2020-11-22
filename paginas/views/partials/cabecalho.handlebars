@@ -19,6 +19,9 @@
                 success: function(res){
                     let stringUser = `${res.usuario.pessoa.nome}`;
                     $('#login-container').html(stringUser);
+                    $('#login-container').click(()=>{
+                        location.href = '/telausuario';
+                    })
                     $('#sair-container').html('Sair');
                 },
                 error: function(err){
