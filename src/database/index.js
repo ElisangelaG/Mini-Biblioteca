@@ -9,6 +9,9 @@ import Usuario from "../app/models/usuario";
 import Pessoa from "../app/models/pessoa";
 import Curso from "../app/models/curso";
 import PessoaCurso from "../app/models/pessoacurso";
+import AreaDeEstudo from "../app/models/areadeestudo";
+import AreaDeEstudoObra from "../app/models/areadeestudoobra";
+import TipoObra from "../app/models/tipoobra";
 
 const models = [
   Obra,
@@ -18,7 +21,10 @@ const models = [
   Usuario,
   Pessoa,
   Curso,
-  PessoaCurso
+  PessoaCurso,
+  AreaDeEstudo,
+  AreaDeEstudoObra,
+  TipoObra
 ];
 
 class Database {

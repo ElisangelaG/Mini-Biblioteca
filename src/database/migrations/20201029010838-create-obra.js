@@ -7,6 +7,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      usuario_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "usuarios",
+          key: "id"
+        },
+        onUpdate: "CASCADE",
+        onDelete: "SET NULL"
+      },
       titulo: {
         type: Sequelize.STRING
       },
@@ -39,6 +48,15 @@ module.exports = {
       },
       resumo: {
         type: Sequelize.STRING
+      },
+      tipo_obra_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "tipo_obras",
+          key: "id"
+        },
+        onUpdate: "CASCADE",
+        onDelete: "SET NULL"
       },
       created_at: {
         allowNull: false,

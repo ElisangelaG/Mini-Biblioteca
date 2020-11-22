@@ -1,22 +1,15 @@
+'use strict';
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("autors", {
+    return queryInterface.createTable("area_de_estudos", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      curso_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "cursos",
-          key: "id"
-        },
-        onUpdate: "CASCADE",
-        onDelete: "SET NULL"
-      },
-      nome: {
+      description: {
         type: Sequelize.STRING
       },
       created_at: {
@@ -29,7 +22,14 @@ module.exports = {
       }
     });
   },
+
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("autors");
+    /*
+      Add reverting commands here.
+      Return a promise to correctly handle asynchronicity.
+
+      Example:
+      return queryInterface.dropTable('users');
+    */
   }
 };

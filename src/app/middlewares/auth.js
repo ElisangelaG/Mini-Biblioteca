@@ -29,6 +29,7 @@ module.exports = async (req, res, next) => {
         cursos.push(current.descricao);
       }
 
+      req.usuario_id = id_usuario;
       req.usuario = usuario.dataValues;
       req.usuario.pessoa = req.usuario.pessoa.dataValues;
       req.usuario.pessoa.cursos = cursos;
