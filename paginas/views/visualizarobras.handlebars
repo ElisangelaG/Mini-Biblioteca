@@ -21,7 +21,32 @@
         }
     </style>
     <script>
-
+        $(document).ready(function(){
+            const token = localStorage.getItem('user_token');
+            let obras = [];
+            $.ajax({
+                type: "GET",
+                url: "https://api.om.blog.br/api/v1/obras",
+                headers: {
+                    Authorization: token
+                },
+                success: function(res){
+                    obras = res;
+                    let stringObras = '<table><tr><th>Título</th><th>Arquivo</th><th>Data de inserção</th><th>Tipo</th></tr>';
+                    obras.forEach((obra)=>{
+                        stringObras+= `<tr><td>${obra.titulo}</td><td><a href="${obra.arquivo}" target="_blank">Visualizar</a></td><td>${moment(obra.created_at).format('DD/MM/YYYY')}</td><td>${obra.tipo? obra.tipo.descricao : '-'}</td></tr>`;
+                    });
+                    stringObras += '</table>'
+                    $('#obras-container').html(stringObras);
+                },
+                error: function(err){
+                console.log(err)
+                    alert('Você deve realizar o login para visualizar as obras!');
+                    location.href = '/';
+                },
+                dataType: "json",
+            });
+        });
     </script>
 
 </head>
