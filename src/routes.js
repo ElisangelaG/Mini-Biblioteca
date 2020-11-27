@@ -8,12 +8,12 @@ const routes = new Router();
 // rotas para autenticação e criação de usuarios
 routes.post("/api/v1/usuarios", UsuariosController.create);
 routes.post("/api/v1/usuarios/auth", UsuariosController.authenticate);
+routes.get("/api/v1/obras", ObrasController.index);
 
 // As rotas daqui pra baixo necessitam de autenticação
 routes.use(auth);
 routes.get("/api/v1/usuarios", UsuariosController.index);
 
 routes.post("/api/v1/obras", ObrasController.create);
-routes.get("/api/v1/obras", ObrasController.index);
 
 export default routes;
