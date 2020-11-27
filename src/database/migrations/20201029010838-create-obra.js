@@ -47,7 +47,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       resumo: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       tipo_obra_id: {
         type: Sequelize.INTEGER,
