@@ -7,18 +7,60 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="css/css.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <style>
+        table {
+            width: 80%;
+            border: 1px solid grey;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: medium;
+        }
+        td {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            const token = localStorage.getItem('user_token');
+            let obras = [];
+            $.ajax({
+                type: "GET",
+                url: "https://api.om.blog.br/api/v1/obras/me",
+                headers: {
+                    Authorization: token
+                },
+                success: function(res){
+                    obras = res;
+                    let stringObras = '<table><tr><th>Título</th><th>Arquivo</th><th>Data de inserção</th><th>Tipo</th></tr>';
+                    obras.forEach((obra)=>{
+                        stringObras+= `<tr><td>${obra.titulo}</td><td><a href="${obra.arquivo}" target="_blank">Visualizar</a></td><td>${moment(obra.created_at).format('DD/MM/YYYY')}</td><td>${obra.tipo? obra.tipo.descricao : '-'}</td></tr>`;
+                    });
+                    stringObras += '</table>'
+                    $('#obras-container').html(stringObras);
+                },
+                error: function(err){
+                console.log(err)
+                    alert('Você deve realizar o login para visualizar as obras!');
+                    location.href = '/';
+                },
+                dataType: "json",
+            });
+        });
+    </script>
+
 
 </head>
 
-<body class="menu"> 
+<body class="menu">
     <div class="centro300">
         <div class="boxcadastro1">
-            
-            <h3 style="text-align: center; margin-top: 15px;">Usuário</h3>
 
-        
-</div> 
-    
+            <h3 style="text-align: center; margin-top: 15px;">Usuário</h3>
+            <div id="obras-container"  style="display: flex; justify-content: center; width: 100%;"></div>
+
+</div>
+
 </body>
 
 </html>

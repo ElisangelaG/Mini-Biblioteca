@@ -13,7 +13,7 @@ routes.get("/api/v1/obras", ObrasController.index);
 // As rotas daqui pra baixo necessitam de autenticação
 routes.use(auth);
 routes.get("/api/v1/usuarios", UsuariosController.index);
-
+routes.get("/api/v1/obras/me", ObrasController.minhasObras);
 routes.post("/api/v1/obras", ObrasController.create);
 
 export default routes;
