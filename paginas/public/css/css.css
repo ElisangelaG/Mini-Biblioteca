@@ -128,13 +128,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7e734', end
                     margin-left: auto;
                     margin-right: auto;
                     float: left;
-                    margin-top: -40px;
+                    margin-top: -120px;
                     background-color: #DCDCDC;
                     padding: 15px;
                     border-radius: 10px;
                     -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
                     -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
                     box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+                }
+                
+                .boxcadastro1 {
+                    width: 1000px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    float: left;
+                    margin-top: -160px;
                 }
                 
                 .ladoesquerdo {
