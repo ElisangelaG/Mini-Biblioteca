@@ -13,6 +13,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
     <script>
+
+        $(document).ready(function(){
+            const token = localStorage.getItem('user_token');
+            $.ajax({
+                type: "GET",
+                url: "https://api.om.blog.br/api/v1/usuarios",
+                headers: {
+                    Authorization: token
+                },
+                success: function(res){
+                    
+                },
+                error: function(err){
+                    alert('Você deve estar logado para cadastrar obras.');
+                    location.href = '/';
+                },
+                dataType: "json",
+            });
+        });
+
+        
         function cadastrar() {
 
             const titulo = document.getElementById('Titulo').value;
